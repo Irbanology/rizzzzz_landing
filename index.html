@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80" as="image" media="(min-width: 769px)">
+    <link rel="preload" href="hero_bg.jpeg" as="image">
     
     <style>
         /* ============================================
@@ -90,7 +90,7 @@
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--color-black);
-            background-color: var(--color-white);
+            background-color: var(--color-black);
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
@@ -219,7 +219,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--color-black) url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80') center/cover no-repeat;
+            background: var(--color-black) url('hero_bg.jpeg') center/cover no-repeat;
             position: relative;
             overflow: hidden;
             padding-top: var(--nav-height);
@@ -229,7 +229,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.6) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.82) 18%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.6) 100%);
             z-index: 0;
         }
 
@@ -544,6 +544,21 @@
             border-left-color: var(--color-red-dark);
         }
 
+        .feature-icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: 1rem;
+            color: var(--color-red);
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+            display: block;
+        }
+
         .feature-card h3 {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
             margin-bottom: 1rem;
@@ -586,21 +601,22 @@
         .process .section-subtitle {
             color: var(--color-white);
             width: 100%;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            text-align: left;
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
             position: relative;
             width: 100%;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .process-step {
-            text-align: center;
+            text-align: left;
             padding: 2rem;
             position: relative;
             opacity: 0;
@@ -624,7 +640,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-white);
-            margin: 0 auto 1.5rem;
+            margin: 0 0 1.5rem 0;
             box-shadow: 0 10px 30px rgba(255, 54, 54, 0.3);
             transition: all 0.3s ease;
         }
@@ -756,6 +772,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            min-width: 0;
         }
 
         .contact-info h3 {
@@ -839,21 +856,26 @@
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(0,0,0,0.06);
+            min-width: 0;
+            max-width: 100%;
         }
 
         .contact-form {
             background: transparent;
             padding: 0;
+            min-width: 0;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+            min-width: 0;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
+            min-width: 0;
         }
 
         .form-row .form-group {
@@ -872,6 +894,8 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
+            min-width: 0;
+            max-width: 100%;
             padding: 1rem 1.1rem;
             border: 2px solid var(--color-light-gray);
             border-radius: 10px;
@@ -880,6 +904,7 @@
             transition: all 0.3s ease;
             background: var(--color-white);
             color: var(--color-black);
+            overflow-wrap: break-word;
         }
 
         .form-group input:focus,
@@ -1360,9 +1385,14 @@
             }
 
             .services-grid,
-            .features-grid,
-            .process-steps {
+            .features-grid {
                 padding: 0 1.5rem;
+            }
+
+            .process .section-title,
+            .process .section-subtitle,
+            .process .process-steps {
+                padding: 0 1rem;
             }
 
             .faq-container {
@@ -1387,7 +1417,7 @@
         @media (max-width: 768px) {
             :root { --nav-height: 80px; }
             /* Smaller bg images on mobile for faster decode and less memory */
-            .hero { background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=768&q=75'); }
+            .hero { background-image: url('hero_bg.jpeg'); }
             .about { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=768&q=75'); }
             .services { background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a0d7?w=768&q=75'); }
             .why-choose-us { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=768&q=75'); }
@@ -1649,6 +1679,10 @@
                 font-size: 0.95rem;
                 padding: 0.875rem 1.5rem;
             }
+
+            .contact-form-wrapper {
+                padding: 1rem;
+            }
         }
 
         /* Touch device optimizations */
@@ -1788,27 +1822,33 @@
         <p class="section-subtitle">What sets us apart in delivering exceptional results</p>
         <div class="features-grid">
             <div class="feature-card">
-                <h3>🎯 Results-Driven Strategy</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                <h3>Results-Driven Strategy</h3>
                 <p>Every campaign is built on data and strategic insights. We don't just create, we optimize for measurable outcomes that impact your bottom line.</p>
             </div>
             <div class="feature-card">
-                <h3>🤝 Transparent Communication</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg></div>
+                <h3>Transparent Communication</h3>
                 <p>Stay informed every step of the way. We believe in clear, honest communication and regular updates so you're always in the loop.</p>
             </div>
             <div class="feature-card">
-                <h3>💡 Creative Excellence</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg></div>
+                <h3>Creative Excellence</h3>
                 <p>We blend creativity with strategy to produce work that's both visually stunning and strategically sound. Your brand deserves nothing less.</p>
             </div>
             <div class="feature-card">
-                <h3>⚡ Fast Turnaround</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <h3>Fast Turnaround</h3>
                 <p>Time is money. We deliver high-quality work efficiently without compromising on excellence, so you can start seeing results faster.</p>
             </div>
             <div class="feature-card">
-                <h3>🔒 Trusted Partnership</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+                <h3>Trusted Partnership</h3>
                 <p>We're not just vendors—we're your growth partners. Your success is our success, and we're committed to building long-term relationships.</p>
             </div>
             <div class="feature-card">
-                <h3>📊 Proven Track Record</h3>
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z"/></svg></div>
+                <h3>Proven Track Record</h3>
                 <p>Our strategies have helped businesses increase leads, improve brand recognition, and achieve their growth objectives. Let us do the same for you.</p>
             </div>
         </div>
@@ -1989,7 +2029,7 @@
                         <div class="form-group" id="subjectGroup">
                             <label for="subject">Subject</label>
                             <select id="subject" name="subject">
-                                <option value="">Select a topic</option>
+                                <option value="">Select a specific option</option>
                                 <option value="general">General Inquiry</option>
                                 <option value="marketing">Marketing & Customer Service</option>
                                 <option value="social">Social Media Marketing</option>

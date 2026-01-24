@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rizz Project Management - Marketing & Design Solutions for growing businesses">
+    <title>Rizz Project Management - Marketing & Design Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="riz_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80" as="image">
+    
+    <style>
+        /* ============================================
+           CSS RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Black, White & Red Color Palette */
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-red: #ff3636;
+            --color-dark: #1a1a1a;
+            --color-light-bg: #fafafa;
+            --color-gray: #666666;
+            --color-light-gray: #e0e0e0;
+            --color-red-dark: #cc2b2b;
+            --color-red-light: #ff5555;
+            --nav-height: 88px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        /* Prevent white gap below navbar when scrolling to anchors (desktop + mobile) */
+        #hero, #about, #services, #why-choose-us, #process, #faq, #cta, #contact {
+            scroll-margin-top: var(--nav-height);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-black);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html.nav-open,
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: #000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 1px 0 0 #000, 0 2px 20px rgba(0, 0, 0, 0.1);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: 0 1px 0 0 #000, 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            width: 100%;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo img {
+            height: calc(var(--nav-height) - 2rem);
+            width: auto;
+            display: block;
+        }
+
+        .logo:hover img {
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-red);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            gap: 5px;
+            border: none;
+            background: transparent;
+            padding: 10px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-white);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-black) url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            padding-top: var(--nav-height);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .hero h1 .highlight {
+            color: var(--color-red);
+        }
+
+        .hero .subheadline {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--color-red);
+            color: var(--color-white);
+            box-shadow: 0 10px 30px rgba(255, 54, 54, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 54, 54, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-black);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           SECTIONS COMMON STYLES
+           ============================================ */
+        .section {
+            padding: 6rem 2rem;
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+            width: 100%;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about {
+            position: relative;
+            background: var(--color-white) url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.92);
+            z-index: 0;
+        }
+
+        .about .section-title,
+        .about .section-subtitle,
+        .about .about-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            color: var(--color-gray);
+        }
+
+        .about-content strong {
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            position: relative;
+            background: var(--color-black) url('https://images.unsplash.com/photo-1551434678-e076c223a0d7?w=1920&q=80') center/cover no-repeat;
+            color: var(--color-white);
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            z-index: 0;
+        }
+
+        .services .section-title,
+        .services .section-subtitle,
+        .services .services-grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        .services .section-title,
+        .services .section-subtitle {
+            color: var(--color-white);
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: transform, opacity;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            will-change: auto;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-red);
+            box-shadow: 0 20px 40px rgba(255, 54, 54, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-red);
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+        }
+
+        /* ============================================
+           WHY CHOOSE US SECTION
+           ============================================ */
+        .why-choose-us {
+            position: relative;
+            background: var(--color-light-bg) url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80') center/cover no-repeat;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(250,250,250,0.88);
+            z-index: 0;
+        }
+
+        .why-choose-us .section-title,
+        .why-choose-us .section-subtitle,
+        .why-choose-us .features-grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-choose-us .section-title,
+        .why-choose-us .section-subtitle {
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-red);
+            opacity: 0;
+            transform: translateX(-30px);
+            will-change: transform, opacity;
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+            will-change: auto;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 54, 54, 0.15);
+            border-left-color: var(--color-red-dark);
+        }
+
+        .feature-card h3 {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        .feature-card p {
+            color: var(--color-gray);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+        }
+
+        /* ============================================
+           PROCESS SECTION
+           ============================================ */
+        .process {
+            position: relative;
+            background: var(--color-dark) url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80') center/cover no-repeat;
+            color: var(--color-white);
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 0;
+        }
+
+        .process .section-title,
+        .process .section-subtitle,
+        .process .process-steps {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process .section-title,
+        .process .section-subtitle {
+            color: var(--color-white);
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.9);
+            will-change: transform, opacity;
+        }
+
+        .process-step.visible {
+            opacity: 1;
+            transform: scale(1);
+            will-change: auto;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--color-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 54, 54, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--color-red-dark);
+            transform: scale(1.1);
+        }
+
+        .process-step h3 {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            position: relative;
+            background: var(--color-red) url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80') center/cover no-repeat;
+            color: var(--color-white);
+            text-align: center;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,54,54,0.88);
+            z-index: 0;
+        }
+
+        .cta-section h2,
+        .cta-section p,
+        .cta-section .btn {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            width: 100%;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            position: relative;
+            background: var(--color-white) url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.9);
+            z-index: 0;
+        }
+
+        .contact .section-title,
+        .contact .section-subtitle,
+        .contact .contact-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info > p {
+            color: var(--color-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--color-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--color-red);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            box-shadow: 0 8px 30px rgba(255,54,54,0.15);
+            transform: translateX(4px);
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: rgba(255,54,54,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+        }
+
+        .contact-item-text strong {
+            display: block;
+            color: var(--color-black);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-text a,
+        .contact-item-text span {
+            color: var(--color-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--color-red);
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            padding: 1rem;
+            background: rgba(255,54,54,0.06);
+            border-radius: 10px;
+            border-left: 3px solid var(--color-red);
+        }
+
+        .contact-form-wrapper {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .contact-form {
+            background: transparent;
+            padding: 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-black);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.1rem;
+            border: 2px solid var(--color-light-gray);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 3px rgba(255, 54, 54, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-group .error-message {
+            color: var(--color-red);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: var(--color-red);
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-success {
+            display: none;
+            background: #48bb78;
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-submit-note {
+            font-size: 0.85rem;
+            color: var(--color-gray);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+        .faq {
+            position: relative;
+            background: var(--color-light-bg) url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80') center/cover no-repeat;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .faq::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(250,250,250,0.92);
+            z-index: 0;
+        }
+
+        .faq .section-title,
+        .faq .section-subtitle,
+        .faq .faq-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq .section-title {
+            color: var(--color-black);
+        }
+
+        .faq .section-subtitle {
+            color: var(--color-gray);
+        }
+
+        .faq .section-title,
+        .faq .section-subtitle {
+            padding: 0 2rem;
+        }
+
+        .faq-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--color-white);
+            border-radius: 14px;
+            border: 1px solid var(--color-light-gray);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            opacity: 0;
+            transform: translateY(28px) scale(0.98);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        .faq-item.visible {
+            animation: faqItemIn 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .faq-item.visible:nth-child(1) { animation-delay: 0s; }
+        .faq-item.visible:nth-child(2) { animation-delay: 0.07s; }
+        .faq-item.visible:nth-child(3) { animation-delay: 0.14s; }
+        .faq-item.visible:nth-child(4) { animation-delay: 0.21s; }
+        .faq-item.visible:nth-child(5) { animation-delay: 0.28s; }
+        .faq-item.visible:nth-child(6) { animation-delay: 0.35s; }
+        .faq-item.visible:nth-child(7) { animation-delay: 0.42s; }
+
+        @keyframes faqItemIn {
+            0% { opacity: 0; transform: translateY(28px) scale(0.98); }
+            60% { transform: translateY(-6px) scale(1.01); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255,54,54,0.4);
+            box-shadow: 0 8px 28px rgba(255,54,54,0.12);
+        }
+
+        .faq-item.open {
+            border-color: var(--color-red);
+            box-shadow: 0 10px 36px rgba(255,54,54,0.18);
+            transform: scale(1.01);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            border: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            font-weight: 600;
+            color: var(--color-black);
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--color-red);
+        }
+
+        .faq-question:focus {
+            outline: none;
+        }
+
+        .faq-question:focus-visible {
+            outline: 2px solid var(--color-red);
+            outline-offset: 2px;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,54,54,0.1);
+            border-radius: 8px;
+            color: var(--color-red);
+            font-size: 0.85rem;
+            transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), background 0.35s ease, color 0.35s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+            background: var(--color-red);
+            color: var(--color-white);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        .faq-item.open .faq-answer {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer-inner {
+            opacity: 1;
+            transition: opacity 0.35s ease 0.1s;
+        }
+
+        .faq-answer-inner p {
+            padding: 1rem 1.5rem 1.25rem 1.5rem;
+            margin: 0;
+            color: var(--color-gray);
+            line-height: 1.75;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+            border-top: 1px solid var(--color-light-gray);
+        }
+
+        .faq-answer-inner ul {
+            margin: 0.75rem 0 0 0;
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            padding-left: 2rem;
+            color: var(--color-gray);
+            line-height: 1.8;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+        }
+
+        .faq-answer-inner > ul:first-child {
+            border-top: 1px solid var(--color-light-gray);
+            margin-top: 0;
+            padding-top: 1rem;
+        }
+
+        .faq-answer-inner li {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer-inner li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-red);
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            height: 42px;
+            width: auto;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--color-red);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-red);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item span:first-child {
+            color: var(--color-red);
+            font-size: 1.1rem;
+        }
+
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--color-red);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            color: var(--color-white);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-red);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer .copyright {
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--color-red);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+            .section {
+                padding: 5rem 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .services .section-title,
+            .services .section-subtitle,
+            .why-choose-us .section-title,
+            .why-choose-us .section-subtitle,
+            .process .section-title,
+            .process .section-subtitle,
+            .faq .section-title,
+            .faq .section-subtitle {
+                padding: 0 1.5rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .process-steps {
+                padding: 0 1.5rem;
+            }
+
+            .faq-container {
+                padding: 0 1.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root { --nav-height: 80px; }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                height: calc(100dvh - var(--nav-height));
+                max-height: calc(100dvh - var(--nav-height));
+                background: var(--color-black);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                transition: left 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+                gap: 1.5rem;
+                z-index: 1001;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                z-index: 1002;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 1rem 2rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .services .section-title,
+            .services .section-subtitle,
+            .why-choose-us .section-title,
+            .why-choose-us .section-subtitle,
+            .process .section-title,
+            .process .section-subtitle,
+            .faq .section-title,
+            .faq .section-subtitle {
+                padding: 0 1rem;
+            }
+
+            .faq-container {
+                padding: 0 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1.25rem;
+            }
+
+            .service-card,
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-logo {
+                height: 36px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero {
+                padding-top: var(--nav-height);
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root { --nav-height: 72px; }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .footer-logo {
+                height: 32px;
+            }
+
+            .hero {
+                padding-top: var(--nav-height);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero .subheadline {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .service-card,
+            .feature-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-item {
+                padding: 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1rem;
+            }
+
+            .faq-answer-inner p {
+                padding: 0.875rem 1rem 1rem 1rem;
+            }
+
+            .faq-answer-inner ul {
+                padding: 0 1rem 1rem 1rem;
+                padding-left: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .footer {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .footer-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            :root { --nav-height: 64px; }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 0.95rem;
+                padding: 0.875rem 1.5rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn,
+            .nav-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .faq-question {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-toggle {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .service-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Skip to main content (visible on focus) */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 10000;
+            padding: 0.75rem 1.25rem;
+            background: var(--color-red);
+            color: var(--color-white);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+            outline: 2px solid var(--color-white);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#hero" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo"><img src="rizz_logo_Nav.svg" alt="Rizz Project Management" class="logo-img--nav"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose-us">Why Us</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" tabindex="-1">
+        <div class="hero-content">
+            <h1>Transform Your Business with <span class="highlight">Strategic Marketing</span> & Design Excellence</h1>
+            <p class="subheadline">We help ambitious businesses and startups grow their online presence, attract more customers, and build brands that convert. Results-driven solutions tailored to your success.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+                <a href="#services" class="btn btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about" tabindex="-1">
+        <h2 class="section-title">About Rizz Project Management</h2>
+        <p class="section-subtitle">Your Growth Partner in Digital Excellence</p>
+        <div class="about-content">
+            <p><strong>Rizz Project Management</strong> specializes in delivering high-impact marketing and design solutions that drive real business results. We combine strategic thinking with creative execution to help businesses establish a powerful online presence, attract qualified leads, and build brands that resonate with their target audience.</p>
+            <p style="margin-top: 1.5rem;">Our team focuses on <strong>performance, professionalism, and measurable growth</strong>. Whether you're a startup looking to make your mark or an established business ready to scale, we provide the expertise and dedication needed to turn your vision into reality.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services" tabindex="-1">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive solutions designed to accelerate your growth</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Marketing & Customer Service</h3>
+                <p>Strategic marketing campaigns that attract and retain customers. We develop comprehensive strategies that increase brand visibility, drive engagement, and deliver exceptional customer experiences that turn prospects into loyal advocates.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Marketing</h3>
+                <p>Build a powerful social media presence that connects with your audience and drives conversions. From content strategy to community management, we help you leverage platforms to grow your following and boost engagement.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Designing</h3>
+                <p>Custom websites that not only look stunning but convert visitors into customers. We create responsive, fast-loading sites optimized for search engines and user experience, ensuring your online presence works 24/7 for your business.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Graphic Designing</h3>
+                <p>Visual identity and design assets that make your brand stand out. From logos and brand guidelines to marketing materials, we craft designs that communicate your message clearly and leave a lasting impression.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose-us" id="why-choose-us" tabindex="-1">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-subtitle">What sets us apart in delivering exceptional results</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🎯 Results-Driven Strategy</h3>
+                <p>Every campaign is built on data and strategic insights. We don't just create—we optimize for measurable outcomes that impact your bottom line.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🤝 Transparent Communication</h3>
+                <p>Stay informed every step of the way. We believe in clear, honest communication and regular updates so you're always in the loop.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💡 Creative Excellence</h3>
+                <p>We blend creativity with strategy to produce work that's both visually stunning and strategically sound. Your brand deserves nothing less.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Fast Turnaround</h3>
+                <p>Time is money. We deliver high-quality work efficiently without compromising on excellence, so you can start seeing results faster.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Trusted Partnership</h3>
+                <p>We're not just vendors—we're your growth partners. Your success is our success, and we're committed to building long-term relationships.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Proven Track Record</h3>
+                <p>Our strategies have helped businesses increase leads, improve brand recognition, and achieve their growth objectives. Let us do the same for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process" id="process" tabindex="-1">
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">A streamlined process designed for your success</p>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Discovery</h3>
+                <p>We dive deep into understanding your business, goals, target audience, and challenges. This foundation ensures every strategy is tailored to your unique needs.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Strategy</h3>
+                <p>Based on insights, we develop a comprehensive plan with clear objectives, timelines, and KPIs. You'll see exactly how we'll achieve your goals.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Execution</h3>
+                <p>Our team brings the strategy to life with precision and creativity. We execute with attention to detail while keeping you updated throughout.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Growth</h3>
+                <p>We monitor performance, optimize campaigns, and scale what works. Continuous improvement ensures your business keeps growing and evolving.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq" tabindex="-1">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Quick answers about our services, process, and how we work with you</p>
+        <div class="faq-container">
+            <div class="faq-list">
+                <div class="faq-item" id="faq-item-1">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">What services does Rizz Project Management provide?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+                        <div class="faq-answer-inner">
+                            <p>Rizz Project Management offers end-to-end digital solutions, including marketing and customer service management, social media marketing, website design, and graphic design. Our goal is to help businesses build a strong online presence and convert attention into measurable results.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-2">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">What type of businesses do you work with?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+                        <div class="faq-answer-inner">
+                            <p>We work with startups, small to mid-sized businesses, and growing brands across multiple industries. Whether you are launching a new business or scaling an existing one, our strategies are tailored to your goals and budget.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-3">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">How does your working process look?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+                        <div class="faq-answer-inner">
+                            <p>Our process is simple and transparent:</p>
+                            <ul>
+                                <li><strong>Discovery:</strong> We understand your business, audience, and objectives.</li>
+                                <li><strong>Strategy:</strong> We create a clear, results-focused plan.</li>
+                                <li><strong>Execution:</strong> Our team implements and manages everything professionally.</li>
+                                <li><strong>Growth &amp; Optimization:</strong> We track performance and continuously improve results.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-4">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">How long does it take to see results?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+                        <div class="faq-answer-inner">
+                            <p>Timelines depend on the service. Website and design projects usually take a few weeks, while marketing and social media growth is an ongoing process. We focus on sustainable, long-term results rather than short-term hype.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-5">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">Do you provide customized solutions or fixed packages?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+                        <div class="faq-answer-inner">
+                            <p>We primarily offer customized solutions because every business is different. After understanding your requirements, we recommend the most effective plan that aligns with your objectives and resources.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-6">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">Will I be involved during the project?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+                        <div class="faq-answer-inner">
+                            <p>Yes. We believe in clear communication and collaboration. You will receive regular updates, progress reports, and opportunities to review and provide feedback throughout the project.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-item-7">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-7" id="faq-q-7">How do we get started?<span class="faq-icon" aria-hidden="true">&#9660;</span></button>
+                    <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-q-7">
+                        <div class="faq-answer-inner">
+                            <p>Getting started is easy. Simply contact us through the website or book a free consultation. We will discuss your needs, answer your questions, and guide you on the best way forward.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta" tabindex="-1">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how we can help you achieve your goals and drive real results. Get started with a free consultation today.</p>
+        <a href="#contact" class="btn btn-primary" style="background: #ffffff; color: #000000;">Start Your Project</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" tabindex="-1">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's start a conversation about your project</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Reach out and we'll respond as soon as we can. We typically reply within 24 hours.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉</div>
+                        <div class="contact-item-text">
+                            <strong>Email</strong>
+                            <a href="mailto:contact@rizzprojectmanagement.com">contact@rizzprojectmanagement.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <div class="contact-item-text">
+                            <strong>Phone</strong>
+                            <a href="tel:+923001234567">+92 300 1234567</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-text">
+                            <strong>Office</strong>
+                            <span>A60, Block D, North nazimabad, <br> Karachi, Pakistan</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🕐</div>
+                        <div class="contact-item-text">
+                            <strong>Hours</strong>
+                            <span>Mon – Fri: 9am – 6pm</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="contact-note">Prefer a call? Book a free consultation and we'll find a time that works for you.</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-success" id="formSuccess">
+                        Your email client is opening with your message. Please click <strong>Send</strong> to contact us. We'll reply within 24 hours.
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group" id="nameGroup">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <span class="error-message">Please enter your name</span>
+                        </div>
+                        <div class="form-group" id="emailGroup">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group" id="phoneGroup">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567">
+                        </div>
+                        <div class="form-group" id="subjectGroup">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="marketing">Marketing & Customer Service</option>
+                                <option value="social">Social Media Marketing</option>
+                                <option value="website">Website Designing</option>
+                                <option value="graphic">Graphic Designing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="messageGroup">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or how we can help..." required></textarea>
+                        <span class="error-message">Please enter your message</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <p class="form-submit-note">We'll never share your details. Reply within 24 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="riz_logo.svg" alt="Rizz Project Management" class="footer-logo logo-img--footer">
+                <h3>Rizz Project Management</h3>
+                <p>Strategic Marketing & Design Solutions for Growing Businesses. We help you grow leads, strengthen your brand, and build a strong online presence.</p>
+                <!-- <div class="footer-social">
+                    <a href="#" aria-label="Facebook">F</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">X</a>
+                </div> -->
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-choose-us">Why Us</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="footer-contact-item">
+                    <span>✉</span>
+                    <a href="mailto:contact@rizzprojectmanagement.com">contact@rizzprojectmanagement.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+923001234567">+92 300 1234567</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📍</span>
+                    <span>A60, Block D, North nazimabad, Karachi, Pakistan</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 Rizz Project Management. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // PERFORMANCE OPTIMIZATIONS
+        // ============================================
+        // Throttle function for scroll events
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // ============================================
+        // NAVBAR SCROLL EFFECT (Optimized)
+        // ============================================
+        const navbar = document.getElementById('navbar');
+        
+        const handleScroll = throttle(() => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // ============================================
+        // MOBILE MENU TOGGLE
+        // ============================================
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        function setMenuOpen(open, options) {
+            options = options || {};
+            if (open) {
+                navLinks.classList.add('active');
+                navLinks.removeAttribute('inert');
+                mobileMenuToggle.classList.add('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                mobileMenuToggle.setAttribute('aria-label', 'Close menu');
+                document.body.classList.add('nav-open');
+                document.documentElement.classList.add('nav-open');
+                var sy = window.scrollY || window.pageYOffset;
+                document.body.dataset.scrollY = String(sy);
+                document.body.style.position = 'fixed';
+                document.body.style.top = '-' + sy + 'px';
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.width = '100%';
+            } else {
+                navLinks.classList.remove('active');
+                if (window.innerWidth <= 768) navLinks.setAttribute('inert', '');
+                else navLinks.removeAttribute('inert');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+                document.body.classList.remove('nav-open');
+                document.documentElement.classList.remove('nav-open');
+                var sy = document.body.dataset.scrollY;
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.width = '';
+                delete document.body.dataset.scrollY;
+                if (sy !== undefined && sy !== '' && !options.skipRestore) {
+                    window.scrollTo(0, parseInt(String(sy), 10));
+                }
+            }
+        }
+
+        mobileMenuToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            setMenuOpen(!navLinks.classList.contains('active'));
+        });
+
+        // Close mobile menu when clicking on a link (skipRestore: smooth-scroll will handle scroll)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function () {
+                setMenuOpen(false, { skipRestore: true });
+            });
+        });
+
+        // Close mobile menu on resize to desktop (throttled for smoothness)
+        window.addEventListener('resize', throttle(() => {
+            if (window.innerWidth > 768) setMenuOpen(false);
+        }, 150));
+
+        // Close mobile menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                setMenuOpen(false);
+                mobileMenuToggle.focus();
+            }
+        });
+
+        // On load: make off-screen nav inactive for tab on mobile when closed
+        if (window.innerWidth <= 768 && !navLinks.classList.contains('active')) {
+            navLinks.setAttribute('inert', '');
+        }
+
+        // ============================================
+        // SMOOTH SCROLLING (Optimized)
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+
+                const target = document.querySelector(href);
+                if (target) {
+                    const navHeight = navbar.offsetHeight;
+                    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+                    const scrollTo = Math.max(0, targetTop - navHeight - 1); /* 1px to avoid sub-pixel gap under nav */
+                    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                    requestAnimationFrame(() => {
+                        window.scrollTo({ top: scrollTo, behavior });
+                        try { target.focus({ preventScroll: true }); } catch (_) {}
+                    });
+                }
+            });
+        });
+
+        // ============================================
+        // SCROLL ANIMATIONS (Optimized)
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements after DOM is ready
+        function initAnimations() {
+            document.querySelectorAll('.service-card, .feature-card, .process-step, .faq-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize animations when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAnimations);
+        } else {
+            initAnimations();
+        }
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                var item = btn.closest('.faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); });
+                document.querySelectorAll('.faq-question').forEach(b => { b.setAttribute('aria-expanded', 'false'); });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ============================================
+        // FORM VALIDATION & MAILTO
+        // ============================================
+        const CONTACT_EMAIL = 'contact@rizzprojectmanagement.com';
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const nameGroup = document.getElementById('nameGroup');
+        const emailGroup = document.getElementById('emailGroup');
+        const messageGroup = document.getElementById('messageGroup');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const phoneInput = document.getElementById('phone');
+        const subjectSelect = document.getElementById('subject');
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Remove error class on input
+        function removeError(group) {
+            group.classList.remove('error');
+        }
+
+        nameInput.addEventListener('input', () => removeError(nameGroup));
+        emailInput.addEventListener('input', () => removeError(emailGroup));
+        messageInput.addEventListener('input', () => removeError(messageGroup));
+
+        // Form submission: validate then open mailto with subject, name, email, phone, message
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+
+            // Reset previous errors
+            nameGroup.classList.remove('error');
+            emailGroup.classList.remove('error');
+            messageGroup.classList.remove('error');
+            formSuccess.classList.remove('show');
+
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                nameGroup.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate email
+            if (emailInput.value.trim() === '' || !emailRegex.test(emailInput.value)) {
+                emailGroup.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate message
+            if (messageInput.value.trim() === '') {
+                messageGroup.classList.add('error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                var name = nameInput.value.trim();
+                var email = emailInput.value.trim();
+                var phone = phoneInput.value.trim();
+                var message = messageInput.value.trim();
+                var subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+                if (subjectSelect.value === '') subjectText = 'General Inquiry';
+
+                // Subject: "Rizz PM Contact: [Topic] - [Name]"
+                var subject = 'Rizz PM Contact: ' + subjectText + ' - ' + name;
+
+                // Body: Name, Email, Phone, Message
+                var body = 'Name: ' + name + '\r\n' +
+                    'Email: ' + email + '\r\n' +
+                    'Phone: ' + (phone || 'Not provided') + '\r\n\r\n' +
+                    'Message:\r\n' + message;
+
+                var mailto = 'mailto:' + CONTACT_EMAIL +
+                    '?subject=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+
+                window.location.href = mailto;
+
+                formSuccess.classList.add('show');
+                contactForm.reset();
+                var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                requestAnimationFrame(() => {
+                    formSuccess.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
+                });
+                setTimeout(() => {
+                    formSuccess.classList.remove('show');
+                }, 6000);
+            } else {
+                var firstError = document.querySelector('.form-group.error');
+                if (firstError) {
+                    var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                    requestAnimationFrame(() => {
+                        firstError.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
+                    });
+                }
+            }
+        });
+
+        // Close mobile menu when clicking outside or on the overlay (not on a link)
+        document.addEventListener('click', (e) => {
+            const isClickOnLinkOrToggle = mobileMenuToggle.contains(e.target) || (navLinks.contains(e.target) && e.target.closest('a'));
+            if (!isClickOnLinkOrToggle && navLinks.classList.contains('active')) setMenuOpen(false);
+        });
+    </script>
+</body>
+</html>

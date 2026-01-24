@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="hero_bg.jpeg" as="image">
+    <link rel="preload" href="hero_bg.jpg" as="image">
     
     <style>
+        
         /* ============================================
            CSS RESET & BASE STYLES
            ============================================ */
@@ -219,7 +220,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--color-black) url('hero_bg.jpeg') center/cover no-repeat;
+            background: var(--color-black) url('hero_bg.jpg') center/cover no-repeat;
             position: relative;
             overflow: hidden;
             padding-top: var(--nav-height);
@@ -1423,7 +1424,7 @@
         @media (max-width: 768px) {
             :root { --nav-height: 80px; }
             /* Smaller bg images on mobile for faster decode and less memory */
-            .hero { background-image: url('hero_bg.jpeg'); }
+            .hero { background-image: url('hero_bg.jpg'); }
             .about { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=768&q=75'); }
             .services { background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a0d7?w=768&q=75'); }
             .why-choose-us { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=768&q=75'); }

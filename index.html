@@ -49,7 +49,7 @@
             width: 100%;
             max-width: 100%;
             scrollbar-width: thin;
-            scrollbar-color: var(--color-red) rgba(0, 0, 0, 0.06);
+            scrollbar-color: var(--color-red) var(--color-black);
         }
 
         /* Custom scrollbar - red thumb (#ff3636) */
@@ -57,7 +57,7 @@
             width: 10px;
         }
         html::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.04);
+            background: var(--color-black);
         }
         html::-webkit-scrollbar-thumb {
             background: var(--color-red);
@@ -71,7 +71,7 @@
             width: 8px;
         }
         .nav-links::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
+            background: var(--color-black);
         }
         .nav-links::-webkit-scrollbar-thumb {
             background: var(--color-red);
@@ -1198,6 +1198,8 @@
 
         .footer-links {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .footer-links li {
@@ -1227,6 +1229,15 @@
         .footer-contact-item span:first-child {
             color: var(--color-red);
             font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item span:first-child svg {
+            width: 1.1em;
+            height: 1.1em;
+            fill: currentColor;
         }
 
         .footer-contact-item a {
@@ -1364,6 +1375,12 @@
 
             .footer-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand .footer-logo {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -1411,7 +1428,7 @@
                 -webkit-overflow-scrolling: touch;
                 overscroll-behavior: contain;
                 scrollbar-width: thin;
-                scrollbar-color: var(--color-red) rgba(255, 255, 255, 0.1);
+                scrollbar-color: var(--color-red) var(--color-black);
             }
 
             .nav-links.active {
@@ -1702,8 +1719,8 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#why-choose-us">Why Us</a></li>
-                <li><a href="#process">Process</a></li>
+                <li><a href="#why-choose-us">Why Choose Us</a></li>
+                <li><a href="#process">How We Work</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1772,7 +1789,7 @@
         <div class="features-grid">
             <div class="feature-card">
                 <h3>🎯 Results-Driven Strategy</h3>
-                <p>Every campaign is built on data and strategic insights. We don't just create—we optimize for measurable outcomes that impact your bottom line.</p>
+                <p>Every campaign is built on data and strategic insights. We don't just create, we optimize for measurable outcomes that impact your bottom line.</p>
             </div>
             <div class="feature-card">
                 <h3>🤝 Transparent Communication</h3>
@@ -2014,8 +2031,8 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#why-choose-us">Why Us</a></li>
-                    <li><a href="#process">Process</a></li>
+                    <li><a href="#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="#process">How We Work</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -2023,15 +2040,15 @@
             <div class="footer-column">
                 <h4>Contact</h4>
                 <div class="footer-contact-item">
-                    <span>✉</span>
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
                     <a href="mailto:contact@rizzprojectmanagement.com">contact@rizzprojectmanagement.com</a>
                 </div>
                 <div class="footer-contact-item">
-                    <span>📞</span>
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
                     <a href="tel:+923001234567">+92 300 1234567</a>
                 </div>
                 <div class="footer-contact-item">
-                    <span>📍</span>
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
                     <span>A60, Block D, North nazimabad, Karachi, Pakistan</span>
                 </div>
             </div>

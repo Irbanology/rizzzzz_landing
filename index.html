@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="hero_bg.jpg" as="image" fetchpriority="high">
     <meta name="description" content="Rizz Project Management - Marketing & Design Solutions for growing businesses">
     <title>Rizz Project Management - Marketing & Design Solutions</title>
     <link rel="icon" type="image/svg+xml" href="riz_logo.svg">
@@ -10,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="hero_bg.jpg" as="image">
     
     <style>
         
@@ -220,10 +220,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--color-black) url('hero_bg.jpg') center/cover no-repeat;
+            background: var(--color-black);
             position: relative;
             overflow: hidden;
             padding-top: var(--nav-height);
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
         .hero::before {
@@ -231,7 +240,7 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.82) 18%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.6) 100%);
-            z-index: 0;
+            z-index: 1;
         }
 
         .hero-content {
@@ -1207,7 +1216,7 @@
 
         .footer-brand h3 {
             font-size: 1.5rem;
-            color: var(--color-red);
+            color: white;
             margin-bottom: 0.75rem;
             font-weight: 700;
         }
@@ -1424,7 +1433,6 @@
         @media (max-width: 768px) {
             :root { --nav-height: 80px; }
             /* Smaller bg images on mobile for faster decode and less memory */
-            .hero { background-image: url('hero_bg.jpg'); }
             .about { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=768&q=75'); }
             .services { background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a0d7?w=768&q=75'); }
             .why-choose-us { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=768&q=75'); }
@@ -1775,6 +1783,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero" tabindex="-1">
+        <img class="hero-bg-img" src="hero_bg.jpg" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async">
         <div class="hero-content">
             <h1>Transform Your Business with <span class="highlight">Strategic Marketing</span> & Design Excellence</h1>
             <p class="subheadline">We help ambitious businesses and startups grow their online presence, attract more customers, and build brands that convert. Results-driven solutions tailored to your success.</p>

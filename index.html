@@ -850,11 +850,12 @@
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
+            min-width: 0;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 1rem;
             padding: 1rem 1.25rem;
             background: var(--color-white);
@@ -862,6 +863,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             border-left: 4px solid var(--color-red);
             transition: all 0.3s ease;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .contact-item:hover {
@@ -870,9 +873,10 @@
         }
 
         .contact-item-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            flex-shrink: 0;
             background: rgba(255, 54, 54, 0.1);
             border-radius: 12px;
             display: flex;
@@ -882,9 +886,17 @@
         }
 
         .contact-item-icon svg {
-            width: 1.35rem;
-            height: 1.35rem;
+            width: 1.25rem;
+            height: 1.25rem;
             fill: currentColor;
+        }
+
+        .contact-item-text {
+            min-width: 0;
+            flex: 1;
+            text-align: left;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         .contact-item-text strong {
@@ -896,9 +908,18 @@
 
         .contact-item-text a,
         .contact-item-text span {
+            display: block;
             color: var(--color-gray);
             text-decoration: none;
             font-size: 0.95rem;
+            text-align: left;
+            line-height: 1.6;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .contact-item-text span {
+            text-indent: 0;
         }
 
         .contact-item-text a:hover {
@@ -1338,11 +1359,12 @@
 
         .footer-contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.75rem;
             margin-bottom: 1rem;
             color: rgba(255, 255, 255, 0.75);
             font-size: 0.95rem;
+            text-align: left;
         }
 
         .footer-contact-item span:first-child {
@@ -1351,12 +1373,21 @@
             display: inline-flex;
             align-items: center;
             flex-shrink: 0;
+            min-width: 1.25em;
         }
 
         .footer-contact-item span:first-child svg {
             width: 1.1em;
             height: 1.1em;
             fill: currentColor;
+        }
+
+        .footer-contact-item a,
+        .footer-contact-item span:not(:first-child) {
+            flex: 1;
+            min-width: 0;
+            text-align: left;
+            display: block;
         }
 
         .footer-contact-item a {
@@ -2471,7 +2502,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="copyright">&copy; 2025 Rizz Project Management. All rights reserved.</p>
+            <p class="copyright">&copy; 2026 Rizz Project Management. All rights reserved.</p>
             <div class="footer-legal">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>

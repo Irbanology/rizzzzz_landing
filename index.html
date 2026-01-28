@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Hero image first so it loads before anything else -->
     <link rel="preload" href="hero_bg.jpg" as="image" fetchpriority="high">
     <meta name="description" content="Rizz Project Management - Marketing & Design Solutions for growing businesses">
@@ -65,10 +65,13 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
             scroll-padding-top: var(--nav-height);
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
+            min-height: 100%;
+            min-height: 100dvh;
             scrollbar-width: thin;
             scrollbar-color: var(--color-red) var(--color-black);
         }
@@ -128,10 +131,14 @@
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
             overflow-wrap: break-word;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
         }
 
         html.nav-open,
@@ -166,7 +173,7 @@
 
         .nav-container {
             width: 100%;
-            padding: 0 2rem;
+            padding: 0 max(2rem, calc(env(safe-area-inset-right) + 1rem)) 0 max(2rem, calc(env(safe-area-inset-left) + 1rem));
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -484,6 +491,7 @@
             transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             opacity: 0;
             transform: translateY(30px);
+            min-width: 0;
         }
 
         .service-card.visible {
@@ -574,6 +582,7 @@
             border-left: 4px solid var(--color-red);
             opacity: 0;
             transform: translateX(-30px);
+            min-width: 0;
         }
 
         .feature-card.visible {
@@ -670,6 +679,7 @@
             opacity: 0;
             transform: scale(0.9);
             transition: transform 0.25s ease, opacity 0.25s ease;
+            min-width: 0;
         }
 
         .process-step.visible {
@@ -1420,6 +1430,53 @@
         }
 
         /* ============================================
+           SCROLL TO TOP BUTTON
+           ============================================ */
+        .scroll-to-top {
+            position: fixed;
+            right: max(1.5rem, calc(env(safe-area-inset-right) + 1rem));
+            bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--color-red);
+            color: var(--color-white);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(255, 54, 54, 0.4);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(255, 54, 54, 0.5);
+        }
+
+        .scroll-to-top:focus {
+            outline: 2px solid var(--color-white);
+            outline-offset: 2px;
+        }
+
+        .scroll-to-top svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ============================================
            ANIMATIONS
            ============================================ */
         @keyframes fadeInUp {
@@ -1800,6 +1857,37 @@
 
             .contact-form-wrapper {
                 padding: 1rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            :root {
+                --nav-height: 60px;
+            }
+
+            .nav-container {
+                padding: 0 max(0.75rem, env(safe-area-inset-right)) 0 max(0.75rem, env(safe-area-inset-left));
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 2.5rem 0.75rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -2249,7 +2337,7 @@
                             </svg></div>
                         <div class="contact-item-text">
                             <strong>Phone</strong>
-                            <a href="tel:+923001234567">+92 300 1234567</a>
+                            <a href="tel:+923710294979">+92 371 0294979</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2371,7 +2459,7 @@
                             <path
                                 d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                         </svg></span>
-                    <a href="tel:+923001234567">+92 300 1234567</a>
+                    <a href="tel:+923710294979">+92 371 0294979</a>
                 </div>
                 <div class="footer-contact-item">
                     <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2390,6 +2478,12 @@
             </div>
         </div>
     </footer>
+
+    <button type="button" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" title="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script>
         // ============================================
@@ -2423,6 +2517,27 @@
         }, 100);
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // ============================================
+        // SCROLL TO TOP BUTTON
+        // ============================================
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (scrollToTopBtn) {
+            const scrollToTopScroll = throttle(() => {
+                if (window.scrollY > 400) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            }, 100);
+            window.addEventListener('scroll', scrollToTopScroll, { passive: true });
+            scrollToTopScroll(); // initial check
+            scrollToTopBtn.addEventListener('click', function () {
+                const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                window.scrollTo({ top: 0, behavior });
+                scrollToTopBtn.classList.remove('visible');
+            });
+        }
 
         // ============================================
         // MOBILE MENU TOGGLE

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../images/riz_logo.svg">
+    <!-- SEO -->
+    <title>Terms of Service | Riz Project Management</title>
+    <meta name="description"
+        content="Terms of Service for Riz Project Management. Read our terms and conditions for using our website and services.">
+
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-white: #fff;
+            --color-red: #ff3636;
+            --color-red-dark: #cc2b2b;
+            --color-red-glow: rgba(255, 54, 54, 0.35);
+            --color-gray: #999;
+            --color-light-bg: #1a1a1a;
+            --nav-height: 88px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-red) var(--color-black);
+        }
+
+        html::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--color-black);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--color-red);
+            border-radius: 5px;
+        }
+
+        html::-webkit-scrollbar-thumb:hover {
+            background: var(--color-red-dark);
+        }
+
+        .nav-links::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .nav-links::-webkit-scrollbar-track {
+            background: var(--color-black);
+        }
+
+        .nav-links::-webkit-scrollbar-thumb {
+            background: var(--color-red);
+            border-radius: 4px;
+        }
+
+        .nav-links::-webkit-scrollbar-thumb:hover {
+            background: var(--color-red-dark);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(165deg, #0f0f0f 0%, #1a1a1a 40%, #252525 100%);
+            background-attachment: fixed;
+            color: var(--color-white);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ===== LEGAL PAGE LAYOUT ===== */
+
+        .legal-page {
+            min-height: 100vh;
+            padding: calc(var(--nav-height) + 2.5rem) 1.5rem 4rem;
+            position: relative;
+        }
+
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(22, 22, 22, 0.98) 0%, rgba(15, 15, 15, 0.99) 100%);
+            padding: 3.5rem 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5),
+                        0 4px 0 var(--color-red),
+                        0 24px 48px rgba(0, 0, 0, 0.5),
+                        0 0 80px var(--color-red-glow);
+            overflow: hidden;
+        }
+
+        .legal-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-red), #ff6b6b);
+            opacity: 0.9;
+        }
+
+        .legal-title {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+            color: var(--color-white);
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .legal-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-red), transparent);
+            border-radius: 2px;
+            margin-top: 0.75rem;
+        }
+
+        .legal-updated {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .legal-section {
+            margin-bottom: 2.25rem;
+            padding-left: 1.25rem;
+            border-left: 3px solid rgba(255, 54, 54, 0.4);
+            transition: border-color 0.25s ease;
+        }
+
+        .legal-section:hover {
+            border-left-color: var(--color-red);
+        }
+
+        .legal-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--color-white);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .legal-section p,
+        .legal-section li {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .legal-section ul {
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+            list-style: none;
+        }
+
+        .legal-section ul li {
+            position: relative;
+            padding-left: 0;
+            margin-bottom: 0.4rem;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            background: var(--color-red);
+            border-radius: 50%;
+        }
+
+        .legal-section a {
+            color: var(--color-red);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .legal-section a:hover {
+            color: #ff5555;
+            border-bottom-color: var(--color-red);
+        }
+
+        /* ===== NAVBAR (match main site) ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #000;
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+        .nav-container {
+            width: 100%;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: calc(var(--nav-height) - 2rem);
+            width: auto;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--color-red); }
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            border: none;
+            background: transparent;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-white);
+            border-radius: 2px;
+        }
+        /* ===== FOOTER (match main site) ===== */
+        .footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--color-red);
+        }
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-logo { height: 42px; width: auto; margin-bottom: 0.75rem; }
+        .footer-brand h3 { font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem; font-weight: 700; }
+        .footer-brand p { color: rgba(255,255,255,0.75); line-height: 1.7; font-size: 0.95rem; max-width: 280px; }
+        .footer-column h4 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--color-red); }
+        .footer-contact-item { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; color: rgba(255,255,255,0.75); font-size: 0.95rem; }
+        .footer-contact-item span:first-child { color: var(--color-red); display: inline-flex; flex-shrink: 0; }
+        .footer-contact-item span:first-child svg { width: 1.1em; height: 1.1em; fill: currentColor; }
+        .footer-contact-item a, .footer-contact-item span:not(:first-child) { flex: 1; text-decoration: none; color: inherit; }
+        .footer-contact-item a:hover { color: var(--color-red); }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer .copyright { margin: 0; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); font-size: 0.9rem; text-decoration: none; }
+        .footer-legal a:hover { color: var(--color-red); }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .legal-container { padding: 2rem 1.5rem; }
+            .nav-container { padding: 0 1.5rem; }
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                background: var(--color-black);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                gap: 1.5rem;
+                transition: left 0.35s ease;
+                z-index: 1001;
+            }
+            .nav-links.active { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .mobile-menu-toggle { display: flex; z-index: 1002; }
+            .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+            .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .footer-brand p { max-width: 100%; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><img src="../images/riz_logo_Nav.svg" alt="Riz Project Management"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#hero">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose-us">Why Choose Us</a></li>
+                <li><a href="../index.html#process">How We Work</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="legal-page">
+        <div class="legal-container">
+
+            <h1 class="legal-title">Terms of Service</h1>
+            <p class="legal-updated">Last updated: January 2026</p>
+
+            <div class="legal-section">
+                <h2>Acceptance of Terms</h2>
+                <p>
+                    By using this website or our services, you agree to comply with these
+                    Terms of Service and all applicable laws.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Services</h2>
+                <p>
+                    Riz Project Management provides marketing, design, development,
+                    and consulting services. Scope, pricing, and timelines are defined
+                    individually for each project.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Payments</h2>
+                <p>
+                    Payment terms are agreed upon before project start. Failure to pay may
+                    result in suspension of services.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Intellectual Property</h2>
+                <p>
+                    Final delivered work becomes the client’s property upon full payment,
+                    unless otherwise stated in writing.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Limitation of Liability</h2>
+                <p>
+                    We are not liable for indirect or consequential damages arising from
+                    the use of our website or services.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Contact</h2>
+                <p>
+                    For questions regarding these terms, contact us at
+                    <a href="mailto:support@rizprojectmanagement.com">
+                        support@rizprojectmanagement.com
+                    </a>.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="../images/riz_logo.svg" alt="Riz Project Management" class="footer-logo">
+                <h3>Riz Project Management</h3>
+                <p>Strategic Marketing & Design Solutions for Growing Businesses. We help you grow leads, strengthen your brand, and build a strong online presence.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html#hero">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="../index.html#process">How We Work</a></li>
+                    <li><a href="../index.html#faq">FAQ</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="footer-contact-item">
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                    <a href="mailto:support@rizprojectmanagement.com">support@rizprojectmanagement.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                    <a href="tel:+923710294979">+92 371 0294979</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
+                    <span>A60, Block D, North nazimabad, Karachi, Pakistan</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2026 Riz Project Management. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="termofservice.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById('mobileMenuToggle');
+            var links = document.getElementById('navLinks');
+            if (toggle && links) {
+                toggle.addEventListener('click', function() {
+                    var open = links.classList.toggle('active');
+                    toggle.classList.toggle('active', open);
+                    toggle.setAttribute('aria-expanded', open);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
